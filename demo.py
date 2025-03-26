@@ -1,3 +1,9 @@
+"""
+Demo Module
+
+This module contains sample functions for demonstration.
+"""
+
 def my_function():
     """
     A simple function that performs an operation and returns a value.
@@ -7,5 +13,5 @@ def my_function():
     d = a + b  # Define 'd' before returning
     return d
 
-result = my_function()
-print("Result:", result)  # Output: Result: 21
+RESULT = my_function()  # Using UPPER_CASE for constants
+print("Result:", RESULT)  # Output: Result: 21
