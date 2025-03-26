@@ -17,15 +17,15 @@ def backup_files(source: str, destination: str) -> None:
     """
     today = datetime.date.today()
     backup_file_name = os.path.join(destination, f"backup_{today}")
-    
+
     try:
         shutil.make_archive(backup_file_name, 'gztar', source)
         print(f"Backup successfully created at {backup_file_name}.tar.gz")
-    except Exception as e:
-        print(f"Backup failed: {e}")
+    except (shutil.Error, OSError) as error:  # Catching specific exceptions
+        print(f"Backup failed: {error}")
 
 if __name__ == "__main__":
-    source = r"D:\Python For Devops"  # Use raw strings to avoid escape issues
-    destination = r"D:\Python For Devops\backups"
+    SOURCE = r"D:\Python For Devops"  # UPPER_CASE for constants
+    DESTINATION = r"D:\Python For Devops\backups"
 
-    backup_files(source, destination)
+    backup_files(SOURCE, DESTINATION)
